@@ -1,25 +1,24 @@
 {
-	"name": "playwright-e2e-template",
-	"version": "1.0.0",
-	"description": "E2E tests using Playwright",
-	"author": "Lucas S. Oliveira",
-	"main": "index.js",
-	"scripts": {
-		"test-e2e": "npx rimraf ./playwright-report && npx rimraf ./test-results && npx playwright test",
-		"test-ui": "npx rimraf ./playwright-report && npx rimraf ./test-results && npx playwright test --ui",
-		"test-debug": "npx playwright test --debug",
-		"show-last-report": "npx playwright show-report report",
-		"clean": "npx rimraf ./playwright-report && npx rimraf ./test-results"
-	},
-	"keywords": [],
-
-	"license": "ISC",
-	"devDependencies": {
-		"@playwright/test": "^1.47.2",
-		"@types/dotenv": "^6.1.1",
-		"@types/node": "^22.7.2"
-	},
-	"dependencies": {
-		"dotenv": "^16.4.5"
-	}
+  "name": "playwright-e2e-template",
+  "version": "1.0.0",
+  "description": "E2E tests using Playwright",
+  "author": "Lucas S. Oliveira",
+  "main": "index.js",
+  "scripts": {
+    "test-e2e": "npx rimraf ./playwright-report && npx rimraf ./test-results && npx playwright test",
+    "test-ui": "npx rimraf ./playwright-report && npx rimraf ./test-results && npx playwright test --ui",
+    "test-debug": "npx playwright test --debug",
+    "show-last-report": "npx playwright show-report report",
+    "clean": "npx rimraf ./playwright-report && npx rimraf ./test-results"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.47.2",
+    "@types/dotenv": "^6.1.1",
+    "@types/node": "^22.7.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
 }
