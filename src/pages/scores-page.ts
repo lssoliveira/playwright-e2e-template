@@ -22,7 +22,7 @@ export class ScoresPage {
 		await this.scoreElements.getSearchField().fill(searchTerm);
 	}
 
-	async search(searchTerm: string) {
+	async mainSearch(searchTerm: string) {
 		await this.clickSearchButton();
 		await this.fillSearchField(searchTerm);
 	}
