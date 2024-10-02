@@ -1,10 +1,11 @@
 import { defineConfig, devices } from '@playwright/test';
 import dotenv from 'dotenv';
 import path from 'path';
-dotenv.config({ path: path.resolve(__dirname, `.env.${process.env.ENV || 'development'}`) });
+
+dotenv.config({ path: path.resolve(__dirname, `./config/env/.env.${process.env.ENV || 'dev'}`) });
 
 export default defineConfig({
-  testDir: './e2e/tests',
+  testDir: './src/tests',
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
@@ -20,7 +21,6 @@ export default defineConfig({
     video: 'off'
   },
 
-  /* Configure projects for major browsers */
   projects: [
     {
       name: 'chromium',
