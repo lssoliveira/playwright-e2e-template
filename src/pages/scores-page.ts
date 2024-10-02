@@ -12,6 +12,12 @@ export class ScoresPage {
 
 	async goto() {
 		await this.page.goto('/')
+		if (process.env.CI)
+			await this.changeRegion('no')
+	}
+
+	async changeRegion(value: string) {
+		await this.scoreElements.getChangeRegion(value).click();
 	}
 
 	async clickSearchButton() {

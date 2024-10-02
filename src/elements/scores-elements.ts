@@ -7,6 +7,10 @@ export class ScoreElements {
     this.page = page;
   }
 
+  getChangeRegion(value: string): Locator {
+    return this.page.locator('.website-us-popup_button__ohNt3', { hasText: value });
+  }
+
   getSearchButton(): Locator {
     return this.page.locator('button[class*="site-header_search"]');
   }
