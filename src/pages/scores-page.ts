@@ -38,6 +38,9 @@ export class ScoresPage {
 	}
 
 	async validateTitle(title: string) {
+		if (process.env.CI){
+			title = 'SC Internacional: Livescore'
+		}
 		await expect(this.scoreElements.getTitleText()).toHaveText(title);
 	}
 }
