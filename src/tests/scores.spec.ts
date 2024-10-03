@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test } from '@playwright/test';
 import { ScoresPage } from '../pages/scores-page';
 import { ScoreData } from '../support/data/score-data';
 
