@@ -1,6 +1,6 @@
-import { test, expect } from '@playwright/test';
+import { test } from '@playwright/test';
 import { ScoresPage } from '../pages/scores-page';
-import { ScoreData } from '../../config/data/score-data';
+import { ScoreData } from '../support/data/score-data';
 
 test('Verify SC Internacional Page', async ({ page }) => {
   // arange
@@ -13,5 +13,5 @@ test('Verify SC Internacional Page', async ({ page }) => {
   await scoresPage.selectSearchResult(scoresData.mainResult.INTERNACIONAL);
 
   // accert
-  await scoresPage.validateTitle('Resultados ao vivo SC Internacional')
+  await scoresPage.validateTitle('Resultados ao vivo SC Internacional');
 });

@@ -12,14 +12,23 @@
     "test-ui": "npm run clean && npx playwright test --ui",
     "test-debug": "npm run clean && npx playwright test --debug",
     "show-last-report": "npx playwright show-report report",
-    "clean": "npx rimraf ./playwright-report && npx rimraf ./test-results"
+    "clean": "npx rimraf ./report && npx rimraf ./test-results",
+    "check-code": "npx prettier --write . && npx eslint ."
   },
   "keywords": [],
   "license": "ISC",
   "devDependencies": {
+    "@eslint/js": "^9.11.1",
     "@playwright/test": "^1.47.2",
     "@types/dotenv": "^6.1.1",
-    "@types/node": "^22.7.2"
+    "@types/node": "^22.7.2",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^15.10.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.3.3",
+    "typescript-eslint": "^8.8.0"
   },
   "dependencies": {
     "dotenv": "^16.4.5"
