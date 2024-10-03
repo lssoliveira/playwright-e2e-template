@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { ScoresPage } from '../pages/scores-page';
-import { ScoreData } from '../../config/data/score-data';
+import { ScoreData } from '../support/data/score-data';
 
 test('Verify SC Internacional Page', async ({ page }) => {
   // arange

@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import path from 'path';
 
 dotenv.config({
-  path: path.resolve(__dirname, `./config/env/.env.${process.env.ENV || 'dev'}`),
+  path: path.resolve(__dirname, `./config/.env.${process.env.ENV || 'dev'}`),
 });
 
 export default defineConfig({
