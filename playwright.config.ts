@@ -2,7 +2,9 @@ import { defineConfig, devices } from '@playwright/test';
 import dotenv from 'dotenv';
 import path from 'path';
 
-dotenv.config({ path: path.resolve(__dirname, `./config/env/.env.${process.env.ENV || 'dev'}`) });
+dotenv.config({
+  path: path.resolve(__dirname, `./config/env/.env.${process.env.ENV || 'dev'}`),
+});
 
 export default defineConfig({
   testDir: './src/tests',
@@ -18,7 +20,7 @@ export default defineConfig({
     viewport: { width: 1280, height: 720 },
     ignoreHTTPSErrors: true,
     screenshot: 'only-on-failure',
-    video: 'off'
+    video: 'off',
   },
 
   projects: [

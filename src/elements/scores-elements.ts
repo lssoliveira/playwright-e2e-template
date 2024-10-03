@@ -1,4 +1,4 @@
-import { Locator, Page } from "@playwright/test";
+import { Locator, Page } from '@playwright/test';
 
 export class ScoreElements {
   readonly page: Page;
@@ -8,7 +8,9 @@ export class ScoreElements {
   }
 
   getChangeRegion(value: string): Locator {
-    return this.page.locator('.website-us-popup_button__ohNt3', { hasText: value });
+    return this.page.locator('.website-us-popup_button__ohNt3', {
+      hasText: value,
+    });
   }
 
   getSearchButton(): Locator {

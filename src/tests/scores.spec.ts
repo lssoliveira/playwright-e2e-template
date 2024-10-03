@@ -13,5 +13,5 @@ test('Verify SC Internacional Page', async ({ page }) => {
   await scoresPage.selectSearchResult(scoresData.mainResult.INTERNACIONAL);
 
   // accert
-  await scoresPage.validateTitle('Resultados ao vivo SC Internacional')
+  await scoresPage.validateTitle('Resultados ao vivo SC Internacional');
 });

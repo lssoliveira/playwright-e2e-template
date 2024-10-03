@@ -12,14 +12,16 @@
     "test-ui": "npm run clean && npx playwright test --ui",
     "test-debug": "npm run clean && npx playwright test --debug",
     "show-last-report": "npx playwright show-report report",
-    "clean": "npx rimraf ./playwright-report && npx rimraf ./test-results"
+    "clean": "npx rimraf ./playwright-report && npx rimraf ./test-results",
+    "format": "prettier --write ."
   },
   "keywords": [],
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.47.2",
     "@types/dotenv": "^6.1.1",
-    "@types/node": "^22.7.2"
+    "@types/node": "^22.7.2",
+    "prettier": "^3.3.3"
   },
   "dependencies": {
     "dotenv": "^16.4.5"

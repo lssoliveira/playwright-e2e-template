@@ -1,10 +1,8 @@
 export class ScoreData {
-
   mainSearch = {
-    SC_INTERNACIONAL: 'SC internacional'
-  }
+    SC_INTERNACIONAL: 'SC internacional',
+  };
   mainResult = {
-    INTERNACIONAL: 'Internacional'
-  }
-
-} 
+    INTERNACIONAL: 'Internacional',
+  };
+}
