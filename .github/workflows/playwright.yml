@@ -24,13 +24,11 @@ jobs:
       - name: Install Homebrew
         run: |
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-          echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> $GITHUB_ENV
-          eval "$($HOME/.linuxbrew/bin/brew shellenv)"
+          echo "/home/linuxbrew/.linuxbrew/bin" >> $GITHUB_PATH
 
       - name: Install Allure CLI
         run: |
-          eval "$($HOME/.linuxbrew/bin/brew shellenv)"
-          brew install allure
+          /home/linuxbrew/.linuxbrew/bin/brew install allure
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
