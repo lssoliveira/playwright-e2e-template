@@ -3,29 +3,44 @@ import { Locator, Page } from '@playwright/test';
 export class ScoreElements {
   readonly page: Page;
 
+  private readonly selectors = {
+    changeRegionButtonByText: '.website-us-popup_button__ohNt3',
+    searchButton: 'button[class*="site-header_search"]',
+    searchField: 'input[class*="new-search-widget_input"]',
+    searchResultByItem: 'div[class*="new-search-widget_entity_item_name"]',
+    pageTitle: 'h1[class="mega-header-module-entity-name"]',
+    playerProfileRole: 'div[class*="athlete-widget_profile_role"]'
+  } as const;
+
   constructor(page: Page) {
     this.page = page;
   }
 
-  getChangeRegion(value: string): Locator {
-    return this.page.locator('.website-us-popup_button__ohNt3', {
+  changeRegionButtonByText(value: string): Locator {
+    return this.page.locator(this.selectors.changeRegionButtonByText, {
       hasText: value,
     });
   }
 
-  getSearchButton(): Locator {
-    return this.page.locator('button[class*="site-header_search"]');
+  get searchButton(): Locator {
+    return this.page.locator(this.selectors.searchButton);
   }
 
-  getSearchField(): Locator {
-    return this.page.locator('input[class*="new-search-widget_input"]');
+  get searchField(): Locator {
+    return this.page.locator(this.selectors.searchField);
   }
 
-  getSearchResultByName(searchTerm: string): Locator {
-    return this.page.locator('div[class*="new-search-widget_entity_item_name"]', { hasText: searchTerm });
+  searchResultByItem(searchTerm: string): Locator {
+    return this.page.locator(this.selectors.searchResultByItem, {
+      hasText: new RegExp(`^${searchTerm}$`),
+    });
   }
 
-  getTitleText(): Locator {
-    return this.page.locator('h1[class="mega-header-module-entity-name"]');
+  get pageTitle(): Locator {
+    return this.page.locator(this.selectors.pageTitle);
+  }
+
+  get playerProfileRole(): Locator {
+    return this.page.locator(this.selectors.playerProfileRole);
   }
 }
