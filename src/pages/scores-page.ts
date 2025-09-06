@@ -13,7 +13,6 @@ export class ScoresPage {
   async goto() {
     await this.page.goto('/');
     if (process.env.CI) await this.changeRegion('yes');
-    console.log(`Navigated to: ${this.page.url()}`);
   }
 
   async changeRegion(value: string) {

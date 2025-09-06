@@ -22,7 +22,7 @@ test.describe('BASKETBALL @basketball', () => {
       if (!process.env.CI) {
         await expect(scoresPage.getPlayerProfileRoleText()).toHaveText('Ala Armador');
       } else {
-        await expect(scoresPage.getTitleText()).toHaveText('Shooting Guard');
+        await expect(scoresPage.getPlayerProfileRoleText()).toHaveText('Shooting Guard');
       }
     });
   });
