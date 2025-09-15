@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import { GitHubActionOptions } from '@estruyf/github-actions-reporter';
 import dotenv from 'dotenv';
 import path from 'path';
 
@@ -12,9 +13,24 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 3 : 3,
-  reporter: [['html', { open: 'on-failure', outputFolder: 'report' }]],
+  reporter: process.env.CI
+    ? [
+      [
+        '@estruyf/github-actions-reporter',
+        <GitHubActionOptions>{
+          title: 'Reporter details',
+          useDetails: true,
+          showError: true,
+        },
+      ],
+      ['allure-playwright'],
+    ]
+    : [['line'], ['allure-playwright']],
+
   use: {
     baseURL: process.env.BASE_URL,
+    locale: 'pt-br',
+    extraHTTPHeaders: { 'Accept-Language': 'pt-br' },
     trace: 'on-first-retry',
     headless: true,
     viewport: { width: 1280, height: 720 },
@@ -39,11 +55,4 @@ export default defineConfig({
       use: { ...devices['Desktop Safari'] },
     },
   ],
-
-  /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   url: 'http://127.0.0.1:3000',
-  //   reuseExistingServer: !process.env.CI,
-  // },
 });

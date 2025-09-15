@@ -12,19 +12,19 @@ export class ScoresPage {
 
   async goto() {
     await this.page.goto('/');
-    if (process.env.CI) await this.changeRegion('no');
+    if (process.env.CI) await this.changeRegion('yes');
   }
 
   async changeRegion(value: string) {
-    await this.scoreElements.getChangeRegion(value).click();
+    await this.scoreElements.changeRegionButtonByText(value).click();
   }
 
   async clickSearchButton() {
-    await this.scoreElements.getSearchButton().click();
+    await this.scoreElements.searchButton.click();
   }
 
   async fillSearchField(searchTerm: string) {
-    await this.scoreElements.getSearchField().fill(searchTerm);
+    await this.scoreElements.searchField.fill(searchTerm);
   }
 
   async mainSearch(searchTerm: string) {
@@ -33,13 +33,15 @@ export class ScoresPage {
   }
 
   async selectSearchResult(searchTerm: string) {
-    await this.scoreElements.getSearchResultByName(searchTerm).click();
+    await this.scoreElements.searchResultByItem(searchTerm).click();
   }
 
-  async validateTitle(title: string) {
-    if (process.env.CI) {
-      title = 'SC Internacional: Livescore';
-    }
-    await expect(this.scoreElements.getTitleText()).toHaveText(title);
+  getTitleText() {
+    return this.scoreElements.pageTitle;
   }
+
+  getPlayerProfileRoleText() {
+    return this.scoreElements.playerProfileRole;
+  }
+
 }
